@@ -1,0 +1,594 @@
+[
+  {
+    "id": 0,
+    "maker": "AMC",
+    "make": "AMC Concord",
+    "price": 4099,
+    "weight": 2930,
+    "length": 186
+  },
+  {
+    "id": 1,
+    "maker": "AMC",
+    "make": "AMC Pacer",
+    "price": 4749,
+    "weight": 3350,
+    "length": 173
+  },
+  {
+    "id": 2,
+    "maker": "AMC",
+    "make": "AMC Spirit",
+    "price": 3799,
+    "weight": 2640,
+    "length": 168
+  },
+  {
+    "id": 3,
+    "maker": "Buick",
+    "make": "Buick Century",
+    "price": 4816,
+    "weight": 3250,
+    "length": 196
+  },
+  {
+    "id": 4,
+    "maker": "Buick",
+    "make": "Buick Electra",
+    "price": 7827,
+    "weight": 4080,
+    "length": 222
+  },
+  {
+    "id": 5,
+    "maker": "Buick",
+    "make": "Buick LeSabre",
+    "price": 5788,
+    "weight": 3670,
+    "length": 218
+  },
+  {
+    "id": 6,
+    "maker": "Buick",
+    "make": "Buick Opel",
+    "price": 4453,
+    "weight": 2230,
+    "length": 170
+  },
+  {
+    "id": 7,
+    "maker": "Buick",
+    "make": "Buick Regal",
+    "price": 5189,
+    "weight": 3280,
+    "length": 200
+  },
+  {
+    "id": 8,
+    "maker": "Buick",
+    "make": "Buick Riviera",
+    "price": 10372,
+    "weight": 3880,
+    "length": 207
+  },
+  {
+    "id": 9,
+    "maker": "Buick",
+    "make": "Buick Skylark",
+    "price": 4082,
+    "weight": 3400,
+    "length": 200
+  },
+  {
+    "id": 10,
+    "maker": "Cadillac",
+    "make": "Cad. Deville",
+    "price": 11385,
+    "weight": 4330,
+    "length": 221
+  },
+  {
+    "id": 11,
+    "maker": "Cadillac",
+    "make": "Cad. Eldorado",
+    "price": 14500,
+    "weight": 3900,
+    "length": 204
+  },
+  {
+    "id": 12,
+    "maker": "Cadillac",
+    "make": "Cad. Seville",
+    "price": 15906,
+    "weight": 4290,
+    "length": 204
+  },
+  {
+    "id": 13,
+    "maker": "Chevrolet",
+    "make": "Chev. Chevette",
+    "price": 3299,
+    "weight": 2110,
+    "length": 163
+  },
+  {
+    "id": 14,
+    "maker": "Chevrolet",
+    "make": "Chev. Impala",
+    "price": 5705,
+    "weight": 3690,
+    "length": 212
+  },
+  {
+    "id": 15,
+    "maker": "Chevrolet",
+    "make": "Chev. Malibu",
+    "price": 4504,
+    "weight": 3180,
+    "length": 193
+  },
+  {
+    "id": 16,
+    "maker": "Chevrolet",
+    "make": "Chev. Monte Carlo",
+    "price": 5104,
+    "weight": 3220,
+    "length": 200
+  },
+  {
+    "id": 17,
+    "maker": "Chevrolet",
+    "make": "Chev. Monza",
+    "price": 3667,
+    "weight": 2750,
+    "length": 179
+  },
+  {
+    "id": 18,
+    "maker": "Chevrolet",
+    "make": "Chev. Nova",
+    "price": 3955,
+    "weight": 3430,
+    "length": 197
+  },
+  {
+    "id": 19,
+    "maker": "Dodge",
+    "make": "Dodge Colt",
+    "price": 3984,
+    "weight": 2120,
+    "length": 163
+  },
+  {
+    "id": 20,
+    "maker": "Dodge",
+    "make": "Dodge Diplomat",
+    "price": 4010,
+    "weight": 3600,
+    "length": 206
+  },
+  {
+    "id": 21,
+    "maker": "Dodge",
+    "make": "Dodge Magnum",
+    "price": 5886,
+    "weight": 3600,
+    "length": 206
+  },
+  {
+    "id": 22,
+    "maker": "Dodge",
+    "make": "Dodge St. Regis",
+    "price": 6342,
+    "weight": 3740,
+    "length": 220
+  },
+  {
+    "id": 23,
+    "maker": "Ford",
+    "make": "Ford Fiesta",
+    "price": 4389,
+    "weight": 1800,
+    "length": 147
+  },
+  {
+    "id": 24,
+    "maker": "Ford",
+    "make": "Ford Mustang",
+    "price": 4187,
+    "weight": 2650,
+    "length": 179
+  },
+  {
+    "id": 25,
+    "maker": "Lincoln",
+    "make": "Linc. Continental",
+    "price": 11497,
+    "weight": 4840,
+    "length": 233
+  },
+  {
+    "id": 26,
+    "maker": "Lincoln",
+    "make": "Linc. Mark V",
+    "price": 13594,
+    "weight": 4720,
+    "length": 230
+  },
+  {
+    "id": 27,
+    "maker": "Lincoln",
+    "make": "Linc. Versailles",
+    "price": 13466,
+    "weight": 3830,
+    "length": 201
+  },
+  {
+    "id": 28,
+    "maker": "Mercury",
+    "make": "Merc. Bobcat",
+    "price": 3829,
+    "weight": 2580,
+    "length": 169
+  },
+  {
+    "id": 29,
+    "maker": "Mercury",
+    "make": "Merc. Cougar",
+    "price": 5379,
+    "weight": 4060,
+    "length": 221
+  },
+  {
+    "id": 30,
+    "maker": "Mercury",
+    "make": "Merc. Marquis",
+    "price": 6165,
+    "weight": 3720,
+    "length": 212
+  },
+  {
+    "id": 31,
+    "maker": "Mercury",
+    "make": "Merc. Monarch",
+    "price": 4516,
+    "weight": 3370,
+    "length": 198
+  },
+  {
+    "id": 32,
+    "maker": "Mercury",
+    "make": "Merc. XR-7",
+    "price": 6303,
+    "weight": 4130,
+    "length": 217
+  },
+  {
+    "id": 33,
+    "maker": "Mercury",
+    "make": "Merc. Zephyr",
+    "price": 3291,
+    "weight": 2830,
+    "length": 195
+  },
+  {
+    "id": 34,
+    "maker": "Olds",
+    "make": "Olds 98",
+    "price": 8814,
+    "weight": 4060,
+    "length": 220
+  },
+  {
+    "id": 35,
+    "maker": "Olds",
+    "make": "Olds Cutl Supr",
+    "price": 5172,
+    "weight": 3310,
+    "length": 198
+  },
+  {
+    "id": 36,
+    "maker": "Olds",
+    "make": "Olds Cutlass",
+    "price": 4733,
+    "weight": 3300,
+    "length": 198
+  },
+  {
+    "id": 37,
+    "maker": "Olds",
+    "make": "Olds Delta 88",
+    "price": 4890,
+    "weight": 3690,
+    "length": 218
+  },
+  {
+    "id": 38,
+    "maker": "Olds",
+    "make": "Olds Omega",
+    "price": 4181,
+    "weight": 3370,
+    "length": 200
+  },
+  {
+    "id": 39,
+    "maker": "Olds",
+    "make": "Olds Starfire",
+    "price": 4195,
+    "weight": 2730,
+    "length": 180
+  },
+  {
+    "id": 40,
+    "maker": "Olds",
+    "make": "Olds Toronado",
+    "price": 10371,
+    "weight": 4030,
+    "length": 206
+  },
+  {
+    "id": 41,
+    "maker": "Plymouth",
+    "make": "Plym. Arrow",
+    "price": 4647,
+    "weight": 3260,
+    "length": 170
+  },
+  {
+    "id": 42,
+    "maker": "Plymouth",
+    "make": "Plym. Champ",
+    "price": 4425,
+    "weight": 1800,
+    "length": 157
+  },
+  {
+    "id": 43,
+    "maker": "Plymouth",
+    "make": "Plym. Horizon",
+    "price": 4482,
+    "weight": 2200,
+    "length": 165
+  },
+  {
+    "id": 44,
+    "maker": "Plymouth",
+    "make": "Plym. Sapporo",
+    "price": 6486,
+    "weight": 2520,
+    "length": 182
+  },
+  {
+    "id": 45,
+    "maker": "Plymouth",
+    "make": "Plym. Volare",
+    "price": 4060,
+    "weight": 3330,
+    "length": 201
+  },
+  {
+    "id": 46,
+    "maker": "Pontiac",
+    "make": "Pont. Catalina",
+    "price": 5798,
+    "weight": 3700,
+    "length": 214
+  },
+  {
+    "id": 47,
+    "maker": "Pontiac",
+    "make": "Pont. Firebird",
+    "price": 4934,
+    "weight": 3470,
+    "length": 198
+  },
+  {
+    "id": 48,
+    "maker": "Pontiac",
+    "make": "Pont. Grand Prix",
+    "price": 5222,
+    "weight": 3210,
+    "length": 201
+  },
+  {
+    "id": 49,
+    "maker": "Pontiac",
+    "make": "Pont. Le Mans",
+    "price": 4723,
+    "weight": 3200,
+    "length": 199
+  },
+  {
+    "id": 50,
+    "maker": "Pontiac",
+    "make": "Pont. Phoenix",
+    "price": 4424,
+    "weight": 3420,
+    "length": 203
+  },
+  {
+    "id": 51,
+    "maker": "Pontiac",
+    "make": "Pont. Sunbird",
+    "price": 4172,
+    "weight": 2690,
+    "length": 179
+  },
+  {
+    "id": 52,
+    "maker": "Audi",
+    "make": "Audi 5000",
+    "price": 9690,
+    "weight": 2830,
+    "length": 189
+  },
+  {
+    "id": 53,
+    "maker": "Audi",
+    "make": "Audi Fox",
+    "price": 6295,
+    "weight": 2070,
+    "length": 174
+  },
+  {
+    "id": 54,
+    "maker": "BMW",
+    "make": "BMW 320i",
+    "price": 9735,
+    "weight": 2650,
+    "length": 177
+  },
+  {
+    "id": 55,
+    "maker": "Datsun",
+    "make": "Datsun 200",
+    "price": 6229,
+    "weight": 2370,
+    "length": 170
+  },
+  {
+    "id": 56,
+    "maker": "Datsun",
+    "make": "Datsun 210",
+    "price": 4589,
+    "weight": 2020,
+    "length": 165
+  },
+  {
+    "id": 57,
+    "maker": "Datsun",
+    "make": "Datsun 510",
+    "price": 5079,
+    "weight": 2280,
+    "length": 170
+  },
+  {
+    "id": 58,
+    "maker": "Datsun",
+    "make": "Datsun 810",
+    "price": 8129,
+    "weight": 2750,
+    "length": 184
+  },
+  {
+    "id": 59,
+    "maker": "Fiat",
+    "make": "Fiat Strada",
+    "price": 4296,
+    "weight": 2130,
+    "length": 161
+  },
+  {
+    "id": 60,
+    "maker": "Honda",
+    "make": "Honda Accord",
+    "price": 5799,
+    "weight": 2240,
+    "length": 172
+  },
+  {
+    "id": 61,
+    "maker": "Honda",
+    "make": "Honda Civic",
+    "price": 4499,
+    "weight": 1760,
+    "length": 149
+  },
+  {
+    "id": 62,
+    "maker": "Mazda",
+    "make": "Mazda GLC",
+    "price": 3995,
+    "weight": 1980,
+    "length": 154
+  },
+  {
+    "id": 63,
+    "maker": "Peugeot",
+    "make": "Peugeot 604",
+    "price": 12990,
+    "weight": 3420,
+    "length": 192
+  },
+  {
+    "id": 64,
+    "maker": "Renault",
+    "make": "Renault Le Car",
+    "price": 3895,
+    "weight": 1830,
+    "length": 142
+  },
+  {
+    "id": 65,
+    "maker": "Subaru",
+    "make": "Subaru",
+    "price": 3798,
+    "weight": 2050,
+    "length": 164
+  },
+  {
+    "id": 66,
+    "maker": "Toyota",
+    "make": "Toyota Celica",
+    "price": 5899,
+    "weight": 2410,
+    "length": 174
+  },
+  {
+    "id": 67,
+    "maker": "Toyota",
+    "make": "Toyota Corolla",
+    "price": 3748,
+    "weight": 2200,
+    "length": 165
+  },
+  {
+    "id": 68,
+    "maker": "Toyota",
+    "make": "Toyota Corona",
+    "price": 5719,
+    "weight": 2670,
+    "length": 175
+  },
+  {
+    "id": 69,
+    "maker": "Volkswagen",   
+    "make": "VW Dasher",
+    "price": 7140,
+    "weight": 2160,
+    "length": 172
+  },
+  {
+    "id": 70,
+    "maker": "Volkswagen", 
+    "make": "VW Diesel",
+    "price": 5397,
+    "weight": 2040,
+    "length": 155
+  },
+  {
+    "id": 71,
+    "maker": "Volkswagen", 
+    "make": "VW Rabbit",
+    "price": 4697,
+    "weight": 1930,
+    "length": 155
+  },
+  {
+    "id": 72,
+    "maker": "Volkswagen", 
+    "make": "VW Scirocco",
+    "price": 6850,
+    "weight": 1990,
+    "length": 156
+  },
+  {
+    "id": 73,
+    "maker": "Volvo", 
+    "make": "Volvo 260",
+    "price": 11995,
+    "weight": 3170,
+    "length": 193
+  }
+]
