@@ -8,9 +8,9 @@ var fontWeightAxis = 700;
 
 
 // set the dimensions and margins of the graph
-var margin = {top: 40, right: 150, bottom: 60, left: 30},
+var margin = {top: 40, right: 150, bottom: 300, left: 30},
     width = 500 - margin.left - margin.right,
-    height = 420 - margin.top - margin.bottom;
+    height = 700 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -23,7 +23,6 @@ var svg = d3.select("#my_dataviz")
 
 //Read the data
 d3.json("data/cars.json", function(data) {
-  console.log("data");
   // ---------------------------//
   //       AXIS  AND SCALE      //
   // ---------------------------//
@@ -156,15 +155,15 @@ d3.json("data/cars.json", function(data) {
 
     // Add legend: circles
     var valuesToShow = [5000, 10000, 15000]
-    var xCircle = 390
-    var xLabel = 440
+    var xCircle = 390;
+    var xLabel = 440;
     svg
       .selectAll("legend")
       .data(valuesToShow)
       .enter()
       .append("circle")
         .attr("cx", xCircle)
-        .attr("cy", function(d){ return height - 100 - z(d) } )
+        .attr("cy", function(d){ return 50 -z(d) } )
         .attr("r", function(d){ return z(d) })
         .style("fill", "none")
         .attr("stroke", "black")
@@ -177,8 +176,8 @@ d3.json("data/cars.json", function(data) {
       .append("line")
         .attr('x1', function(d){ return xCircle + z(d) } )
         .attr('x2', xLabel)
-        .attr('y1', function(d){ return height - 100 - z(d) } )
-        .attr('y2', function(d){ return height - 100 - z(d) } )
+        .attr('y1', function(d){ return 50 - z(d) } )
+        .attr('y2', function(d){ return 50 - z(d) } )
         .attr('stroke', 'black')
         .style('stroke-dasharray', ('2,2'))
 
@@ -189,7 +188,7 @@ d3.json("data/cars.json", function(data) {
       .enter()
       .append("text")
         .attr('x', xLabel)
-        .attr('y', function(d){ return height - 100 - z(d) } )
+        .attr('y', function(d){ return 50 - z(d) } )
         .text( function(d){ return d } )
         .attr("font-weight", fontWeightAxis)
         .attr("font-family", fontFamilyAxis)
@@ -199,7 +198,7 @@ d3.json("data/cars.json", function(data) {
     // Legend title
     svg.append("text")
       .attr('x', xCircle)
-      .attr("y", height - 100 +30)
+      .attr("y", 50 +30)
       .text("Prix")
       .attr("font-weight", fontWeightAxis)
       .attr("font-family", fontFamilyAxis)
@@ -207,10 +206,12 @@ d3.json("data/cars.json", function(data) {
 
     // Add one dot in the legend for each name.
     var size = 20
-    var allgroups = ["AMC", "Buick", "Cadillac", "Chevrolet", "Dodge","Ford"/*,"Lincoln","Mercury","Old","Plymouth","Pontiac","Audi","BMW","Datsun","Fiat","Honda"
-,"Mazda","Honda","Renault","Peugeot","Subaru","Toyota","Volkswagen","Volvo"*/]
+    var allgroups = ["AMC", "Buick", "Cadillac", "Chevrolet", "Dodge","Ford","Lincoln","Mercury","Olds","Plymouth","Pontiac","Audi","BMW","Datsun","Fiat","Honda"
+      ,"Mazda","Honda","Renault","Peugeot","Subaru","Toyota","Volkswagen","Volvo"]
 
-    svg.selectAll("myrect")
+    const group = svg.append("g").classed("group",true)
+    
+    /*group.selectAll("myrect")
       .data(allgroups)
       .enter()
       .append("circle")
@@ -219,15 +220,56 @@ d3.json("data/cars.json", function(data) {
         .attr("r", 7)
         .style("fill", function(d){ return myColor(d)})
         .on("mouseover", highlight)
-        .on("mouseleave", noHighlight)
+        .on("mouseleave", noHighlight)*/
 
-    // Add labels beside legend dots
-    svg.selectAll("mylabels")
+
+
+    var previous = 0;
+    var yPosCircle = 400;
+    var yPosText = 400;
+    var xPos = 0;
+
+    group.selectAll("myrect")
+      .data(allgroups)
+      .enter()
+      .append("circle")
+        .attr("cx", function(d,i){
+          if(i % 2 == 0){
+            return 200;
+          }else{
+            return xPos;
+          } })
+        .attr("cy", function(d,i){
+            if(i % 2 == 0){
+              yPosCircle = yPosCircle + 20;
+              return yPosCircle;
+            }else{
+              return yPosCircle;
+            }
+          })
+        .attr("r", 7)
+        .style("fill", function(d){ return myColor(d)})
+        .on("mouseover", highlight)
+        .on("mouseleave", noHighlight)
+  
+    group.selectAll("mylabels")
       .data(allgroups)
       .enter()
       .append("text")
-        .attr("x", 390 + size * 0.5)
-        .attr("y", function(d,i){ return i * (size + 5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .attr("x", function(d,i){
+          if(i % 2 == 0){
+            return 220;
+          }else{
+            return xPos + 20;
+          } })
+        .attr("y", function(d,i){
+          if(i % 2 == 0){
+            yPosText = yPosText + 20;
+            return yPosText;
+          }else{
+            return yPosText;
+          }
+        })
         .style("fill", function(d){ return myColor(d)})
         .text(function(d){ return d})
         .attr("font-weight", fontWeightAxis)
