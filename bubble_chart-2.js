@@ -1,15 +1,15 @@
 var yScaleTitle = "Length";
 var xScaleTitle = "Weight";
 
-var fontFamilyAxis = "Nunito Sans";
-var fontFamilyTitle = "Open Sans";
+var fontFamilyAxis = "Roboto";
+var fontFamilyTitle = "Roboto";
 var fontWeightTitle = 700;
 var fontWeightAxis = 700;
 
 
 // set the dimensions and margins of the graph
-var margin = {top: 40, right: 150, bottom: 300, left: 30},
-    width = 500 - margin.left - margin.right,
+var margin = {top: 40, right: 400, bottom: 300, left: 30},
+    width = 800 - margin.left - margin.right,
     height = 700 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -31,9 +31,9 @@ d3.json("data/cars.json", function(data) {
   var x = d3.scaleLinear()
     .domain([0, 5000])
     .range([ 0, width ]);
-  svg.append("g")
+  var xAxis = svg.append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).ticks(3))
+    .call(d3.axisBottom(x).ticks(4))
     .attr("font-weight", fontWeightAxis)
     .attr("font-family", fontFamilyAxis);;
 
@@ -72,7 +72,8 @@ d3.json("data/cars.json", function(data) {
 
   // Add a scale for bubble color
   var myColor = d3.scaleOrdinal()
-    .domain(["AMC", "Buick", "Cadillac", "Chevrolet", "Dodge","Ford"])
+    .domain(["AMC", "Buick", "Cadillac", "Chevrolet", "Dodge","Ford","Lincoln","Mercury","Olds","Plymouth","Pontiac","Audi","BMW","Datsun","Fiat","Honda"
+    ,"Mazda","Honda","Renault","Peugeot","Subaru","Toyota","Volkswagen","Volvo"])
     .range(d3.schemeTableau10);
 
   // ---------------------------//
@@ -91,12 +92,14 @@ d3.json("data/cars.json", function(data) {
 
   // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
   var showTooltip = function(d) {
+    console.log("hello");
+    var tooltipContent = "Maker: " + d.maker + "<br>Price: " + d.price + " €";
     tooltip
       .transition()
       .duration(200)
     tooltip
       .style("opacity", 1)
-      .html("Maker: " + d.maker)
+      .html(tooltipContent)
       .style("left", (d3.mouse(this)[0]+30) + "px")
       .style("top", (d3.mouse(this)[1]+30) + "px")
   }
@@ -132,9 +135,78 @@ d3.json("data/cars.json", function(data) {
   // ---------------------------//
   //       CIRCLES              //
   // ---------------------------//
+       //BRUSHING
+       var clip = svg.append("defs").append("svg:clipPath")
+       .attr("id", "clip")
+       .append("svg:rect")
+       .attr("width", width + 40 )
+       .attr("height", height )
+       .attr("x", 0)
+       .attr("y", 0);
+
+     // Add brushing
+     var brush = d3.brushX()                 // Add the brush feature using the d3.brush function
+         .extent( [ [0,0], [width,height] ] ) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+         .on("end", updateChart) // Each time the brush selection changes, trigger the 'updateChart' function
+   
+     // Create the scatter variable: where both the circles and the brush take place
+     var scatter = svg.append('g')
+       .attr("clip-path", "url(#clip)")
+   
+     // Add circles
+     scatter
+       .selectAll("circle")
+       .data(data)
+       .enter()
+       .append("circle")
+         .attr("class", function(d) { return "bubbles " + d.maker })
+         .attr("cx", function (d) { return x(d.weight); } )
+         .attr("cy", function (d) { return y(d.length); } )
+         .attr("r", function (d) { return z(d.price); } )
+         .style("fill", function (d) { return myColor(d.maker); } )
+         .style("opacity", 0.8)
+         .on("mouseover", showTooltip )
+         .on("mousemove", moveTooltip )
+         .on("mouseleave", hideTooltip )
+   
+     // Add the brushing
+     scatter
+       .append("g")
+         .attr("class", "brush")
+         .call(brush);
+   
+     // A function that set idleTimeOut to null
+     var idleTimeout
+     function idled() { idleTimeout = null; }
+   
+     // A function that update the chart for given boundaries
+     function updateChart() {
+   
+       extent = d3.event.selection
+   
+       // If no selection, back to initial coordinate. Otherwise, update X axis domain
+       if(!extent){
+         if (!idleTimeout) return idleTimeout = setTimeout(idled, 350); // This allows to wait a little bit
+         x.domain([0, 5000])
+         x.range([ 0, width ])
+       }else{
+         x.domain([ x.invert(extent[0]), x.invert(extent[1]) ])
+         scatter.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
+       }
+   
+       // Update axis and circle position
+       xAxis.transition().duration(1000).call(d3.axisBottom(x).ticks(4))
+       scatter
+         .selectAll("circle")
+         .transition().duration(1000)
+         .attr("cx", function (d) { return x(d.weight); } )
+         .attr("cy", function (d) { return y(d.length); } )
+   
+       }
+
 
   // Add dots
-  svg.append('g')
+  /*svg.append('g')
     .selectAll("dot")
     .data(data)
     .enter()
@@ -147,7 +219,7 @@ d3.json("data/cars.json", function(data) {
     // -3- Trigger the functions for hover
     .on("mouseover", showTooltip )
     .on("mousemove", moveTooltip )
-    .on("mouseleave", hideTooltip )
+    .on("mouseleave", hideTooltip )*/
 
     // ---------------------------//
     //       LEGEND              //
@@ -155,8 +227,8 @@ d3.json("data/cars.json", function(data) {
 
     // Add legend: circles
     var valuesToShow = [5000, 10000, 15000]
-    var xCircle = 390;
-    var xLabel = 440;
+    var xCircle = 450;
+    var xLabel = 500;
     svg
       .selectAll("legend")
       .data(valuesToShow)
@@ -210,20 +282,7 @@ d3.json("data/cars.json", function(data) {
       ,"Mazda","Honda","Renault","Peugeot","Subaru","Toyota","Volkswagen","Volvo"]
 
     const group = svg.append("g").classed("group",true)
-    
-    /*group.selectAll("myrect")
-      .data(allgroups)
-      .enter()
-      .append("circle")
-        .attr("cx", 390)
-        .attr("cy", function(d,i){ return 10 + i*(size+5)}) // 100 is where the first dot appears. 25 is the distance between dots
-        .attr("r", 7)
-        .style("fill", function(d){ return myColor(d)})
-        .on("mouseover", highlight)
-        .on("mouseleave", noHighlight)*/
-
-
-
+  
     var previous = 0;
     var yPosCircle = 400;
     var yPosText = 400;
@@ -277,4 +336,6 @@ d3.json("data/cars.json", function(data) {
         .style("alignment-baseline", "middle")
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
+        
   })
+
