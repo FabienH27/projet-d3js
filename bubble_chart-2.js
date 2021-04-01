@@ -23,7 +23,7 @@ var svg = d3.select("#my_dataviz")
 
 //Read the data
 d3.json("data/cars.json", function(data) {
-  console.log(data);
+  console.log("data");
   // ---------------------------//
   //       AXIS  AND SCALE      //
   // ---------------------------//

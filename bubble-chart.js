@@ -1,23 +1,3 @@
-const data = [
-    {model:'AMD Concord',price:4.099,sales:100},
-    {model:'AMC Pacer',price:9,sales:100},
-    {model:'AMC Spirit',price:4.099,sales:100},  
-    {model:'Buick Century',price:4.099,sales:100},
-    {model:'Buick Electra',price:4.099,sales:100},
-    {model:'Buick LeSabre',price:4.099,sales:100},
-    {model:'Buick Opel',price:4.099,sales:100},
-    {model:'Buick Regal',price:4.099,sales:100},
-];
-
-var yScaleTitle = "Life Expectancy";
-var xScaleTitle = "Gdp per Capita";
-
-var fontFamilyAxis = "Nunito Sans";
-var fontFamilyTitle = "Open Sans";
-var fontWeightTitle = 700;
-var fontWeightAxis = 700;
-
-
 // set the dimensions and margins of the graph
 var margin = {top: 40, right: 150, bottom: 60, left: 30},
     width = 500 - margin.left - margin.right,
@@ -34,6 +14,7 @@ var svg = d3.select("#my_dataviz")
 
 //Read the data
 d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/4_ThreeNum.csv", function(data) {
+
   // ---------------------------//
   //       AXIS  AND SCALE      //
   // ---------------------------//
@@ -44,37 +25,29 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).ticks(3))
-    .attr("font-weight", fontWeightAxis)
-    .attr("font-family", fontFamilyAxis);;
+    .call(d3.axisBottom(x).ticks(3));
 
   // Add X axis label:
   svg.append("text")
       .attr("text-anchor", "end")
       .attr("x", width)
       .attr("y", height+50 )
-      .attr("font-weight", fontWeightTitle)
-      .attr("font-family", fontFamilyTitle)
-      .text(xScaleTitle);
+      .text("Gdp per Capita");
 
   // Add Y axis
   var y = d3.scaleLinear()
     .domain([35, 90])
     .range([ height, 0]);
   svg.append("g")
-    .call(d3.axisLeft(y))
-    .attr("font-weight", fontWeightAxis)
-    .attr("font-family", fontFamilyAxis);
+    .call(d3.axisLeft(y));
 
   // Add Y axis label:
   svg.append("text")
       .attr("text-anchor", "end")
       .attr("x", 0)
       .attr("y", -20 )
-      .text(yScaleTitle)
+      .text("Life expectancy")
       .attr("text-anchor", "start")
-      .attr("font-weight", fontWeightTitle)
-      .attr("font-family", fontFamilyTitle);
 
   // Add a scale for bubble size
   var z = d3.scaleSqrt()
@@ -84,7 +57,8 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
   // Add a scale for bubble color
   var myColor = d3.scaleOrdinal()
     .domain(["Asia", "Europe", "Americas", "Africa", "Oceania"])
-    .range(d3.schemeTableau10);
+    .range(d3.schemeSet1);
+
 
   // ---------------------------//
   //      TOOLTIP               //
@@ -123,6 +97,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
       .style("opacity", 0)
   }
 
+
   // ---------------------------//
   //       HIGHLIGHT GROUP      //
   // ---------------------------//
@@ -160,6 +135,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
     .on("mouseover", showTooltip )
     .on("mousemove", moveTooltip )
     .on("mouseleave", hideTooltip )
+
 
 
     // ---------------------------//
@@ -203,8 +179,6 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
         .attr('x', xLabel)
         .attr('y', function(d){ return height - 100 - z(d) } )
         .text( function(d){ return d/1000000 } )
-        .attr("font-weight", fontWeightAxis)
-        .attr("font-family", fontFamilyAxis)
         .style("font-size", 10)
         .attr('alignment-baseline', 'middle')
 
@@ -213,8 +187,6 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
       .attr('x', xCircle)
       .attr("y", height - 100 +30)
       .text("Population (M)")
-      .attr("font-weight", fontWeightAxis)
-      .attr("font-family", fontFamilyAxis)
       .attr("text-anchor", "middle")
 
     // Add one dot in the legend for each name.
@@ -236,13 +208,11 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
       .data(allgroups)
       .enter()
       .append("text")
-        .attr("x", 390 + size * 0.5)
+        .attr("x", 390 + size*.8)
         .attr("y", function(d,i){ return i * (size + 5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
         .style("fill", function(d){ return myColor(d)})
         .text(function(d){ return d})
         .attr("text-anchor", "left")
-        .attr("font-weight", fontWeightAxis)
-        .attr("font-family", fontFamilyAxis)
         .style("alignment-baseline", "middle")
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
