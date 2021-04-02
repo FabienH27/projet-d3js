@@ -1,8 +1,8 @@
 var yScaleTitle = "Length";
 var xScaleTitle = "Weight";
 
-var fontFamilyAxis = "Roboto";
-var fontFamilyTitle = "Roboto";
+var fontFamilyAxis = "Poppins";
+var fontFamilyTitle = "Nunito Sans";
 var fontWeightTitle = 700;
 var fontWeightAxis = 700;
 
@@ -22,7 +22,7 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.json("data/cars.json", function(data) {
+d3.json("data/cars.json").then(function(data) {
   // ---------------------------//
   //       AXIS  AND SCALE      //
   // ---------------------------//
@@ -75,6 +75,7 @@ d3.json("data/cars.json", function(data) {
     .domain(["AMC", "Buick", "Cadillac", "Chevrolet", "Dodge","Ford","Lincoln","Mercury","Olds","Plymouth","Pontiac","Audi","BMW","Datsun","Fiat","Honda"
     ,"Mazda","Honda","Renault","Peugeot","Subaru","Toyota","Volkswagen","Volvo"])
     .range(d3.schemeTableau10);
+    
 
   // ---------------------------//
   //      TOOLTIP               //
@@ -85,14 +86,12 @@ d3.json("data/cars.json", function(data) {
     .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
-      .style("background-color", "black")
       .style("border-radius", "5px")
       .style("padding", "10px")
       .style("color", "white")
 
   // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
-  var showTooltip = function(d) {
-    console.log("hello");
+  var showTooltip = function(event,d) {
     var tooltipContent = "Maker: " + d.maker + "<br>Price: " + d.price + " €";
     tooltip
       .transition()
@@ -100,13 +99,13 @@ d3.json("data/cars.json", function(data) {
     tooltip
       .style("opacity", 1)
       .html(tooltipContent)
-      .style("left", (d3.mouse(this)[0]+30) + "px")
-      .style("top", (d3.mouse(this)[1]+30) + "px")
+      .style("left", (d3.pointer(event)[0]+30) + "px")
+      .style("top", (d3.pointer(event)[1]+30) + "px")
   }
-  var moveTooltip = function(d) {
+  var moveTooltip = function(event, d) {
     tooltip
-      .style("left", (d3.mouse(this)[0]+30) + "px")
-      .style("top", (d3.mouse(this)[1]+30) + "px")
+      .style("left", (d3.pointer(event)[0]+30) + "px")
+      .style("top", (d3.pointer(event)[1]+30) + "px")
   }
   var hideTooltip = function(d) {
     tooltip
@@ -120,7 +119,7 @@ d3.json("data/cars.json", function(data) {
   // ---------------------------//
 
   // What to do when one group is hovered
-  var highlight = function(d){
+  var highlight = function(event,d){
     // reduce opacity of all groups
     d3.selectAll(".bubbles").style("opacity", .05)
     // expect the one that is hovered
@@ -149,12 +148,18 @@ d3.json("data/cars.json", function(data) {
          .extent( [ [0,0], [width,height] ] ) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
          .on("end", updateChart) // Each time the brush selection changes, trigger the 'updateChart' function
    
-     // Create the scatter variable: where both the circles and the brush take place
-     var scatter = svg.append('g')
+     var bubble = svg.append('g')
        .attr("clip-path", "url(#clip)")
+
+
+      // Add the brushing
+     bubble
+     .append("g")
+       .attr("class", "brush")
+       .call(brush);
    
      // Add circles
-     scatter
+     bubble
        .selectAll("circle")
        .data(data)
        .enter()
@@ -164,25 +169,19 @@ d3.json("data/cars.json", function(data) {
          .attr("cy", function (d) { return y(d.length); } )
          .attr("r", function (d) { return z(d.price); } )
          .style("fill", function (d) { return myColor(d.maker); } )
+         .attr("pointer-events", "all")
          .style("opacity", 0.8)
-         .on("mouseover", showTooltip )
-         .on("mousemove", moveTooltip )
-         .on("mouseleave", hideTooltip )
-   
-     // Add the brushing
-     scatter
-       .append("g")
-         .attr("class", "brush")
-         .call(brush);
+         .on("mouseover", showTooltip)
+         .on("mousemove", moveTooltip)
+         .on("mouseleave", hideTooltip)
    
      // A function that set idleTimeOut to null
      var idleTimeout
      function idled() { idleTimeout = null; }
    
      // A function that update the chart for given boundaries
-     function updateChart() {
-   
-       extent = d3.event.selection
+     function updateChart(event) {
+       extent = event.selection;
    
        // If no selection, back to initial coordinate. Otherwise, update X axis domain
        if(!extent){
@@ -191,35 +190,18 @@ d3.json("data/cars.json", function(data) {
          x.range([ 0, width ])
        }else{
          x.domain([ x.invert(extent[0]), x.invert(extent[1]) ])
-         scatter.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
+         bubble.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
        }
    
        // Update axis and circle position
        xAxis.transition().duration(1000).call(d3.axisBottom(x).ticks(4))
-       scatter
+       bubble
          .selectAll("circle")
          .transition().duration(1000)
          .attr("cx", function (d) { return x(d.weight); } )
          .attr("cy", function (d) { return y(d.length); } )
    
        }
-
-
-  // Add dots
-  /*svg.append('g')
-    .selectAll("dot")
-    .data(data)
-    .enter()
-    .append("circle")
-      .attr("class", function(d) { return "bubbles " + d.maker })
-      .attr("cx", function (d) { return x(d.weight); } )
-      .attr("cy", function (d) { return y(d.length); } )
-      .attr("r", function (d) { return z(d.price); } )
-      .style("fill", function (d) { return myColor(d.maker); } )
-    // -3- Trigger the functions for hover
-    .on("mouseover", showTooltip )
-    .on("mousemove", moveTooltip )
-    .on("mouseleave", hideTooltip )*/
 
     // ---------------------------//
     //       LEGEND              //
