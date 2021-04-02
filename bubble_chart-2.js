@@ -261,7 +261,7 @@ d3.json("data/cars.json").then(function(data) {
     // Add one dot in the legend for each name.
     var size = 20
     var allgroups = ["AMC", "Buick", "Cadillac", "Chevrolet", "Dodge","Ford","Lincoln","Mercury","Olds","Plymouth","Pontiac","Audi","BMW","Datsun","Fiat","Honda"
-      ,"Mazda","Honda","Renault","Peugeot","Subaru","Toyota","Volkswagen","Volvo"]
+      ,"Mazda","Renault","Peugeot","Subaru","Toyota","Volkswagen","Volvo"]
 
     const group = svg.append("g").classed("group",true)
   
