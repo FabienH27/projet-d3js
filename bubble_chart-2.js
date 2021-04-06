@@ -2,14 +2,14 @@ var yScaleTitle = "Length";
 var xScaleTitle = "Weight";
 
 var fontFamilyAxis = "Poppins";
-var fontFamilyTitle = "Nunito Sans";
+var fontFamilyTitle = "Open Sans";
 var fontWeightTitle = 700;
 var fontWeightAxis = 700;
 
 
 // set the dimensions and margins of the graph
-var margin = {top: 40, right: 400, bottom: 300, left: 30},
-    width = 800 - margin.left - margin.right,
+var margin = {top: 40, right: 30, bottom: 300, left: 30},
+    width = window.innerWidth / 2 - margin.left - margin.right,
     height = 700 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -17,6 +17,7 @@ var svg = d3.select("#my_dataviz")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .classed("svg-style", true) 
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
@@ -209,15 +210,17 @@ d3.json("data/cars.json").then(function(data) {
 
     // Add legend: circles
     var valuesToShow = [5000, 10000, 15000]
-    var xCircle = 450;
-    var xLabel = 500;
+    var xCircle = 650;
+    var xLabel = 700;
+    var yCircle = 550;
+    var yLabel = 570;
     svg
       .selectAll("legend")
       .data(valuesToShow)
       .enter()
       .append("circle")
         .attr("cx", xCircle)
-        .attr("cy", function(d){ return 50 -z(d) } )
+        .attr("cy", function(d){ return yCircle - z(d) } )
         .attr("r", function(d){ return z(d) })
         .style("fill", "none")
         .attr("stroke", "black")
@@ -230,8 +233,8 @@ d3.json("data/cars.json").then(function(data) {
       .append("line")
         .attr('x1', function(d){ return xCircle + z(d) } )
         .attr('x2', xLabel)
-        .attr('y1', function(d){ return 50 - z(d) } )
-        .attr('y2', function(d){ return 50 - z(d) } )
+        .attr('y1', function(d){ return yCircle - z(d) } )
+        .attr('y2', function(d){ return yCircle - z(d) } )
         .attr('stroke', 'black')
         .style('stroke-dasharray', ('2,2'))
 
@@ -242,7 +245,7 @@ d3.json("data/cars.json").then(function(data) {
       .enter()
       .append("text")
         .attr('x', xLabel)
-        .attr('y', function(d){ return 50 - z(d) } )
+        .attr('y', function(d){ return yCircle - z(d) } )
         .text( function(d){ return d } )
         .attr("font-weight", fontWeightAxis)
         .attr("font-family", fontFamilyAxis)
@@ -252,7 +255,7 @@ d3.json("data/cars.json").then(function(data) {
     // Legend title
     svg.append("text")
       .attr('x', xCircle)
-      .attr("y", 50 +30)
+      .attr("y", yLabel)
       .text("Prix")
       .attr("font-weight", fontWeightAxis)
       .attr("font-family", fontFamilyAxis)

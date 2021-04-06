@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Poppins:wght@400;600&family=Reem+Kufi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>D3.js</title>
+    <style>
+        body{
+            font-family: "Nunito Sans";
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex;">
+        <article>
+            <div id="funnel1"></div>
+            <div id="funnel2"></div>
+            <div id="funnel3"></div>
+            <div id="funnel4"></div>
+        </article>
+        <aside style="display: flex; align-items: center;">
+            <div>
+                <div>
+                    <input type="radio" id="funnel1" class="funnel" name="funnel" value="funnel1" checked>
+                    <label for="funnel1">funnel 1</label>
+                </div>
+            
+                <div>
+                    <input type="radio" id="funnel2" class="funnel" name="funnel" value="funnel2">
+                    <label for="funnel2">funnel 2</label>
+                </div>
+            
+                <div>
+                    <input type="radio" id="funnel3" class="funnel" name="funnel" value="funnel3">
+                    <label for="funnel3">funnel 3</label>
+                </div>
+            
+                <div>
+                    <input type="radio" id="funnel4" class="funnel" name="funnel" value="funnel4">
+                    <label for="funnel4">funnel 4</label>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="d3-funnel/dist/d3-funnel.js"></script>
+
+    <script src="funnel.js"></script>
+
+</body>
+</html>

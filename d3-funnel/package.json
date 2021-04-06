@@ -1,0 +1,72 @@
+{
+  "name": "d3-funnel",
+  "version": "1.2.2",
+  "description": "A library for rendering SVG funnel charts using D3.js",
+  "author": "Jake Zatecky",
+  "license": "MIT",
+  "keywords": [
+    "d3",
+    "funnel",
+    "pyramid",
+    "svg",
+    "chart"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakezatecky/d3-funnel"
+  },
+  "bugs": "https://github.com/jakezatecky/d3-funnel/issues",
+  "main": "dist/d3-funnel.js",
+  "scripts": {
+    "build": "gulp build",
+    "examples": "gulp examples",
+    "gh-deploy": "gulp build-gh-pages && bash ./gh-deploy.sh",
+    "prepublishOnly": "gulp build-script-min",
+    "mocha": "node test/test.js",
+    "test": "gulp test-script"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.0",
+    "browser-sync": "^2.26.3",
+    "chai": "^4.0.1",
+    "d3": "^6.2.0",
+    "eslint": "^7.12.1",
+    "eslint-config-takiyon": "^0.4.0",
+    "eslint-import-resolver-webpack": "^0.13.0",
+    "eslint-plugin-import": "^2.7.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-eslint": "^6.0.0",
+    "gulp-exec": "^5.0.0",
+    "gulp-header": "^2.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-stylelint": "^13.0.0",
+    "jsdom": "^16.0.1",
+    "lodash": "^4.17.10",
+    "mocha": "^8.2.0",
+    "playwright": "^1.5.2",
+    "sinon": "^10.0.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-takiyon": "^1.0.1",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0",
+    "webpack-stream": "^6.1.0"
+  },
+  "dependencies": {
+    "d3-array": "^2.0.3",
+    "d3-ease": "^2.0.0",
+    "d3-scale": "^3.0.0",
+    "d3-scale-chromatic": "^2.0.0",
+    "d3-selection": "^2.0.0",
+    "d3-transition": "^2.0.0",
+    "nanoid": "^3.1.16"
+  }
+}

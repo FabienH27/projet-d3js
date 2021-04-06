@@ -1,0 +1,79 @@
+#app {
+    display: flex;
+    margin: 2rem 1rem;
+}
+
+#chart {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 1rem;
+}
+
+#chart,
+#data {
+    margin: 0 2rem;
+}
+
+#data ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#data li {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.bar, .label {
+    fill: #4f009e;
+}
+
+.bubbles {
+    stroke-width: 1px;
+    stroke: black;
+    opacity: .8
+}
+
+.group{
+    display: block;
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 140px;					
+    height: 55px;		
+    font-weight: bold;
+    font-family: Open Sans;						
+    font-size: 12px;		
+    background: #374151;		
+    pointer-events: none;			
+}
+
+.svg-style {
+    display: block;
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    div.tooltip {
+        transform: translate(350px,500px);   
+    }
+}
+
+@media (max-width: 768px){
+    div.tooltip {
+        transform: translate(0px,600px);   
+    }   
+}
+
+aside {
+    font-size: larger;
+    font-family: Open Sans;
+}
