@@ -1,0 +1,25 @@
+{
+    "funnel1" : [
+        { "label": "Inquiries", "value": 5000 },
+        { "label": "Applicants", "value": 2500 },
+        { "label": "Admits", "value": 500 },
+        { "label": "Deposits", "value": 200 }
+    ],
+    "funnel2" : [
+        { "label": "Part 1", "value": 400 },
+        { "label": "Part 2", "value": 100 },
+        { "label": "Part 3", "value": 150 },
+        { "label": "Part 4", "value": 75 }
+    ],
+    "funnel3" : [
+        { "label": "Part 1", "value": 1000 },
+        { "label": "Part 2", "value": 500 }
+    ],
+    "funnel4" : [
+        { "label": "Part 1","value": 1000 },
+        { "label": "Part 2","value": 500 },
+        { "label": "Part 3","value": 2000 },
+        { "label": "Part 4","value": 400 },
+        { "label": "Part 5","value": 550 }
+    ]
+}
