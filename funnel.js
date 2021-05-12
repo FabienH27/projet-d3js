@@ -19,7 +19,30 @@ const options = {
     },
     label: {
         fontFamily: 'Poppins'
-    }
+    },
+    tooltip: {
+        enabled: true,
+        format: function(label,value) {
+            return label + ': ' + value;
+        }
+    },events: {
+        click: {
+            block(d) {
+                var output = "<div class='modal-content' style='background-color:" + d.fill.raw + "'><span class='close'>&times;</span>" + "<h3 style='color:white; font-weight:800;''> Plus d'informations : </h3>" +
+                    "<p style='color:white'>" + d.label.formatted + "</p>" + "<p style='color:white'>Une éventuelle description </p></div>";
+                //document.getElementsByClassName("modal-content")[0].innerHTML = output;
+                document.getElementById("myModal").innerHTML = output;
+                document.getElementById("myModal").style.display = "block";
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+            },
+        },
+    },
 };
 
 //Chart 1
@@ -102,4 +125,13 @@ function clearFunnel(){
     d3.select('#funnel2').selectAll('svg').remove();
     d3.select('#funnel3').selectAll('svg').remove();
     d3.select('#funnel4').selectAll('svg').remove();
+}
+
+var modal = document.getElementById("myModal");
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+    modal.style.display = "none";
+    }
 }

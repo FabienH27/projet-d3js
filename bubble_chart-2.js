@@ -15,7 +15,7 @@ var margin = {top: 40, right: 30, bottom: 300, left: 30},
 // append the svg object to the body of the page
 var svg = d3.select("#bubble_viz")
   .append("svg")
-    .attr("width", width + margin.left + margin.right)
+    .attr("width", width + margin.left + margin.right )
     .attr("height", height + margin.top + margin.bottom)
     .classed("svg-style", true) 
   .append("g")
