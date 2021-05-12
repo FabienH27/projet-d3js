@@ -11,23 +11,23 @@
     <title>D3 JS Project gallery</title>
 </head>
 <body class="mx-auto text-center bg-gray-200">
-    <h1 class="text-4xl text-blue-500 mt-32 mb-8  uppercase tracking-widest font-bold">D3 JS project gallery</h1>
+    <h1 class="text-4xl text-blue-500 mt-32 mb-8 uppercase tracking-widest font-bold">D3 JS project gallery</h1>
     <h2 class="text-gray-500 mb-32 font-semibold">Collection of graphics made with D3.js</h3>
 
-    <section class="">
+    <section >
         <p class="text-gray-500">Go to</p>
         <a class="text-blue-600 font-semibold block w-32 mx-auto my-2 uppercase" href="#bubble">Bubble chart</a>
         <a class="text-blue-600 font-semibold block w-32 mx-auto my-2 uppercase" href="#funnel">Funnel chart</a>
     </section>
 
-    <section class="bg-white mx-auto md:w-9/12 p-8 rounded-3xl my-16" id="bubble">
+    <section class="bg-white mx-auto md:w-9/12 p-8 my-16" id="bubble">
         <h3 class="text-indigo-500 text-4xl">Bubble chart</h3>
         <div>
-            <div id="my_dataviz"></div>
+            <div id="bubble_viz"></div>
         </div>
     </section>
 
-    <section class="bg-white mx-auto md:w-9/12 p-8 rounded-3xl my-16" id="funnel">
+    <section class="bg-white mx-auto md:w-9/12 p-8 my-16" id="funnel">
         <h3 class="text-indigo-500 text-4xl mb-16">Funnel chart</h3>
         <div class="lg:flex justify-evenly">
             <article>
@@ -62,6 +62,13 @@
         </div>
     </section>
 
+    
+    <section class="bg-white mx-auto md:w-9/12 p-8 rounded-3xl my-16">
+        <h3 class="text-indigo-500 text-4xl">Network Visualization</h3>
+        <div class="flex justify-center">
+            <div id="network_viz"></div>
+        </div>
+    </section>
 
     <script src="https://d3js.org/d3.v6.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
@@ -69,5 +76,6 @@
     <script src="d3-funnel/dist/d3-funnel.js"></script>
     <script src="bubble_chart-2.js"></script>
     <script src="funnel.js"></script>
+    <script src="network2.js"></script>
 </body>
 </html>

@@ -10,10 +10,10 @@ var fontWeightAxis = 700;
 // set the dimensions and margins of the graph
 var margin = {top: 40, right: 30, bottom: 300, left: 30},
     width = window.innerWidth / 2 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom;
+    height = 900 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("#bubble_viz")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -83,7 +83,7 @@ d3.json("data/cars.json").then(function(data) {
   // ---------------------------//
 
   // -1- Create a tooltip div that is hidden by default:
-  var tooltip = d3.select("#my_dataviz")
+  var tooltip = d3.select("#bubble_viz")
     .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
@@ -152,7 +152,6 @@ d3.json("data/cars.json").then(function(data) {
      var bubble = svg.append('g')
        .attr("clip-path", "url(#clip)")
 
-
       // Add the brushing
      bubble
      .append("g")
@@ -212,8 +211,8 @@ d3.json("data/cars.json").then(function(data) {
     var valuesToShow = [5000, 10000, 15000]
     var xCircle = 650;
     var xLabel = 700;
-    var yCircle = 550;
-    var yLabel = 570;
+    var yCircle = 700;
+    var yLabel = 730;
     svg
       .selectAll("legend")
       .data(valuesToShow)
@@ -269,8 +268,8 @@ d3.json("data/cars.json").then(function(data) {
     const group = svg.append("g").classed("group",true)
   
     var previous = 0;
-    var yPosCircle = 400;
-    var yPosText = 400;
+    var yPosCircle = 600;
+    var yPosText = 600;
     var xPos = 0;
 
     group.selectAll("myrect")
