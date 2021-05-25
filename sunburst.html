@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Sunburst</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Poppins:wght@400;600&family=Reem+Kufi&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="bg-gray-200 ml-8">
+  <a class="text-blue-500 text-xl inline-block my-5" href="index.html">< Page d'accueil</a>
+  <div id="data">
+      <div id="datamap">
+        <div class="data-wrapper">
+          <div class="data-sunburst"></div>
+          <div class="data-chart">
+            <div id="data-chart-breadcrumb"></div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+    <script src='https://d3js.org/d3.v4.min.js'></script>
+    <script src="sunburst.js"></script>
+</body>
+</html>

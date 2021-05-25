@@ -8,9 +8,9 @@ var fontWeightAxis = 700;
 
 
 // set the dimensions and margins of the graph
-var margin = {top: 40, right: 30, bottom: 300, left: 30},
+var margin = {top: 40, right: 30, bottom: 200, left: 30},
     width = window.innerWidth / 2 - margin.left - margin.right,
-    height = 900 - margin.top - margin.bottom;
+    height = 1200 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#bubble_viz")
@@ -211,8 +211,8 @@ d3.json("data/cars.json").then(function(data) {
     var valuesToShow = [5000, 10000, 15000]
     var xCircle = 650;
     var xLabel = 700;
-    var yCircle = 700;
-    var yLabel = 730;
+    var yCircle = 925;
+    var yLabel = 950;
     svg
       .selectAll("legend")
       .data(valuesToShow)
@@ -268,8 +268,8 @@ d3.json("data/cars.json").then(function(data) {
     const group = svg.append("g").classed("group",true)
   
     var previous = 0;
-    var yPosCircle = 600;
-    var yPosText = 600;
+    var yPosCircle = 850;
+    var yPosText = 850;
     var xPos = 0;
 
     group.selectAll("myrect")

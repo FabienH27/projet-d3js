@@ -1,0 +1,178 @@
+{
+  "name": "Compétences",
+  "children": [
+    {
+      "name": "Web",
+      "children": [
+        {
+          "name": "Côté Client",
+          "children":[
+            {
+              "name": "HTML"
+            },{
+              "name": "CSS",
+              "children":[
+                {
+                  "name": "Frameworks",
+                  "children":[
+                    {
+                      "name": "Bootstrap"
+                    },
+                    {
+                      "name": "Tailwind"
+                    }
+                  ]
+                },
+                {
+                  "name": "Responsive"
+                }
+              ]
+            },
+            {
+              "name": "Javascript",
+              "children":[
+                {
+                  "name": "D3"
+                },
+                {
+                  "name": "React"
+                },
+                {
+                  "name": "JQuery"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name":"Côté Serveur",
+          "children":[
+            {
+              "name":"PHP",
+              "children":[
+                {
+                  "name":"CakePHP"
+                },
+                {
+                  "name":"Symfony"
+                },
+                {
+                  "name":"Flight"
+                }
+              ]
+            },
+            {
+              "name":"Python",
+              "children":[
+                {
+                  "name":"Django"
+                },{
+                  "name":"Flask"
+                }
+              ]
+            },
+            {
+              "name":"BDD",
+              "children":[
+                {
+                  "name":"SQL"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name":"Prog. Impérative",
+      "children":[
+        {
+          "name":"C"
+        },
+        {
+          "name":"C++"
+        },
+        {
+          "name":"Python"
+        }
+      ]
+    },
+    {
+      "name":"POO",
+      "children":[
+        {
+          "name":"Java",
+          "children":[
+            {
+              "name":"Android"
+            }
+          ]
+        },
+        {
+          "name":"C#",
+          "children":[
+            {
+              "name":"WinForm"
+            },
+            {
+              "name":"WPF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name":"Autres",
+      "children":[
+        {
+          "name":"Projets",
+          "children":[
+            {
+              "name":"Git"
+            },
+            {
+              "name":"Agile"
+            }
+          ]
+        },
+        {
+          "name":"Productivité",
+          "children":[
+            {
+              "name":"Office"
+            },
+            {
+              "name":"Linux"
+            },
+            {
+              "name":"Windows"
+            },
+            {
+              "name":"VSCode"
+            },
+            {
+              "name":"Visual Studio"
+            }
+          ]
+        },
+        {
+          "name":"TDD"
+        },
+        {
+          "name":"Outils",
+          "children":[
+            {
+              "name":"Affinity Designer"
+            },
+            {
+              "name":"Unity3D"
+            },
+            {
+              "name":"Blender"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
